@@ -8,9 +8,9 @@ from email.header import Header
 from email.mime.text import MIMEText
 from email.utils import parseaddr, formataddr
 
-host_mail = '1178362914@qq.com'
-authorization_code = 'skivfapazztlbaci'
-mailLists = ['lsldragon@outlook.com', '2273785747@qq.com']
+host_mail = '************@qq.com'
+authorization_code = '************'
+mailLists = ['lsldragon@outlook.com', '***********@qq.com']
 intervalTime = 40
 
 html_email1 = "<html > <font color = red ><body ><h1> 全国数据 </h1 ><h2> 确诊: "
@@ -53,8 +53,6 @@ def getData():
         chinaDeadCount += province.get('deadCount')
         chinaCuredCount += province.get('curedCount')
 
-    # displayString = "全国 确: %s 亡: %s 愈 %s" % (
-    #     chinaConfirmCount, chinaDeadCount, chinaCuredCount)
     displayString = html_email1 + str(chinaConfirmCount) + html_email2 + str(
         chinaDeadCount) + html_email3 + str(chinaCuredCount) + html_email4
     return displayString
@@ -69,8 +67,7 @@ def sendEmail():
     msg_to = mailLists  # 收件人邮箱
 
     subject = "武汉加油"  # 主题
-    # content = "<html><font size=6 color=red> 加油 武汉</html>"
-
+ 
     contents = getData()
     msg = MIMEText(contents, "html", "utf-8")
     msg['Subject'] = subject
